@@ -1,6 +1,6 @@
 <div *ngIf="states?.length">
     <div class="form-floating">
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+        <select (change)="selectState($event)" class="form-select" id="floatingSelect" aria-label="Floating label select example">
           <option selected>Select state from list</option>
           <option *ngFor="let state of states" value="{{state?.state_id}}">{{ state?.state_name}}</option>
         </select>

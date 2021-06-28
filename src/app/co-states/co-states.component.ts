@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 import { NetworkService } from '../../services/network.service';
 import { State } from '../models/state.model';
 
@@ -8,12 +8,15 @@ import { State } from '../models/state.model';
   styleUrls: ['./co-states.component.css']
 })
 export class CoStatesComponent implements OnInit {
+  
+  @Output() stateIdEvent = new EventEmitter();
+  states!: State[];
 
   constructor(
     private networkService:NetworkService
   ) { }
 
-  states!: State[];
+
 
   ngOnInit(): void {
     this.getStates();
@@ -25,6 +28,11 @@ export class CoStatesComponent implements OnInit {
       if(!x) return;
       this.states = x?.states;
     });
+  }
+
+  selectState($event:any){
+    console.log($event.target.value)
+    this.stateIdEvent.emit($event.target.value);
   }
 
 }
