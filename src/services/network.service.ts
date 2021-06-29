@@ -13,8 +13,8 @@ export class NetworkService {
     return this._http.get<any>(endPoint);
   }
 
-  getDistricts(state_id:string|number){
-    const endPoint = this.baseUrl + `/v2​/admin​/location​/districts​/${state_id}`;
+  getDistricts(state_id:number){
+    const endPoint = this.baseUrl + '/v2/admin/location/districts/' + state_id;
     return this._http.get<any>(endPoint);
   }
 
