@@ -1,1 +1,7 @@
-<p>co-districts works!</p>
+<div class="form-floating">
+    <select (change)="selectDistrict($event)" class="form-select" id="floatingDistrict" aria-label="Floating label select example">
+      <option selected>Select state from list</option>
+      <option *ngFor="let d of districts" value="{{d?.district_id}}">{{ d?.district_name}}</option>
+    </select>
+    <label for="floatingDistrict">Select State</label>
+</div>

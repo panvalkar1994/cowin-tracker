@@ -11,6 +11,7 @@ export class CoStatesComponent implements OnInit {
   
   @Output() stateIdEvent = new EventEmitter();
   states!: State[];
+  stateId!:number;
 
   constructor(
     private networkService:NetworkService
@@ -32,6 +33,7 @@ export class CoStatesComponent implements OnInit {
 
   selectState($event:any){
     console.log($event.target.value)
+    this.stateId=$event.target.value;
     this.stateIdEvent.emit($event.target.value);
   }
 
