@@ -20,18 +20,12 @@ export class NetworkService {
 
   findByPin(params:{pincode:string, date:string}){
     const endPoint = this.baseUrl + `/v2/appointment/sessions/public/findByPin`;
-    const queryParams = new HttpParams();
-    queryParams.append('pincode',params.pincode);
-    queryParams.append('date',params.date);
-    return this._http.get<any>(endPoint, {params:queryParams});
+    return this._http.get<any>(endPoint, { params });
   }
 
   getByPinAndWeek(params:{pincode:string, date:string}){
     const endPoint = this.baseUrl + `/v2/appointment/sessions/public/findByPin`;
-    const queryParams = new HttpParams();
-    queryParams.append('pincode',params.pincode);
-    queryParams.append('date',params.date);
-    return this._http.get<any>(endPoint, {params:queryParams});
+    return this._http.get<any>(endPoint, {params});
   }
 
   findByDistrict(params:{district_id:string,date:string}){
